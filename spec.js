@@ -73,8 +73,6 @@ describe('Navigate to Upwork, Search for a Freelancer and Create a Valid Account
       browser.wait(function() {
          return browser.driver.isElementPresent(by.css('button[type="submit"]'));
       });
-
-      browser.sleep(4000);
    });
 
 });
