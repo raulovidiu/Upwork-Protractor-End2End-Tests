@@ -5,6 +5,9 @@ describe('Authenticate a Valid User', function() {
     var userName = element(by.model('username'));
     var password = element(by.model('password'));
     var logInBtn = element(by.buttonText('Log In'));
+    var iconSearch = element(by.css('span.glyphicon.air-icon-search'));
+    var findFreelancers = element(by.css('input#eoFreelancerSearchInput.form-control'));
+
 
     it('Should Navigate to Home Page', function() {
         browser.driver.manage().window().maximize();
@@ -27,5 +30,11 @@ describe('Authenticate a Valid User', function() {
         expect(browser.getCurrentUrl()).toBe('https://www.upwork.com/ab/jobs-home/2988154?cell=Treatment3');
     });
 
+
+    it('Should Search for Protractor Freelancers', function() {
+        iconSearch.click();
+        findFreelancers.click().sendKeys('Protractor').sendKeys(protractor.Key.ENTER);
+        expect(browser.getCurrentUrl()).toBe('https://www.upwork.com/o/profiles/browse/?q=Protractor');
+    });
 
 });
